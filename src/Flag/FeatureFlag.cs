@@ -1,7 +1,17 @@
 ﻿namespace Flag;
 
-public record struct FeatureFlag(string Name, bool IsEnabled)
+public readonly record struct FeatureFlag
 {
+	public FeatureFlag(string name, bool isEnabled)
+	{
+		Name = name;
+		IsEnabled = isEnabled;
+	}
+
+	public string Name { get; }
+	public bool IsEnabled { get; }
+
+
 	public static FeatureFlag Create(string name, bool isEnabled)
 	{
 		return new FeatureFlag(name, isEnabled);
