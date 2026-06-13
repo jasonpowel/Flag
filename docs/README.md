@@ -7,7 +7,7 @@ A "feature" rich library for using feature flags.
 ### Extensive Integration with the Microsoft.Extensions.IConfiguration Interface
 
 ```cs
-configuration.BuildFeatureFlagsProvider();
+configuration.BuildFeatureFlagProvider();
 ```
 
 ### An Injectable Feature Flag Repository
