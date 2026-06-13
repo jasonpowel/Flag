@@ -30,10 +30,9 @@ public static class ServiceCollectionExtensions
 			featureFlags.Add(child.Key, FeatureFlag.Create(child.Key, isEnabled));
 		}
 
-		//create FeatureFlagProvider class
-
-
-
+		//Create feature flag provider and add to ServiceCollection
+		FeatureFlagProvider featureFlagProvider = new FeatureFlagProvider(featureFlags);
+		services.AddSingleton<IFeatureFlagProvider>(featureFlagProvider);
 		return services;
 	}
 }
