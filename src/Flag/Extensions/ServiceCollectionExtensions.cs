@@ -16,11 +16,9 @@ public static class ServiceCollectionExtensions
 		//2. Create a dictionary to hold flags
 		Dictionary<string, FeatureFlag> featureFlags = new Dictionary<string, FeatureFlag>();
 
-		bool isValid = false;
-
 		foreach (IConfigurationSection child in configurationSection.GetChildren())
 		{
-			isValid = bool.TryParse(child.Value, out bool isEnabled);
+			bool isValid = bool.TryParse(child.Value, out bool isEnabled);
 
 			if (!isValid)
 			{
