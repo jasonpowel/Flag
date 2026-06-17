@@ -2,7 +2,7 @@
 
 public readonly record struct FeatureFlag
 {
-	public FeatureFlag(string name, bool isEnabled)
+	private FeatureFlag(string name, bool isEnabled)
 	{
 		Name = name;
 		IsEnabled = isEnabled;
