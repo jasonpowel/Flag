@@ -5,16 +5,20 @@ namespace Flag.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-	public static IServiceCollection BuildFeatureFlagProvider(this IServiceCollection services)
+	public static IServiceCollection BuildFeatureFlagProvider(
+		this IServiceCollection services,
+		string? configurationSectionKey = null)
 	{
 
 		//1. Get IConfiguration from ServiceProvider
 		IServiceProvider serviceProvider = services.BuildServiceProvider();
 		IConfiguration configuration = serviceProvider.GetRequiredService<IConfiguration>();
-		IConfigurationSection configurationSection = configuration.GetSection("FeatureFlags");
+
+		configurationSectionKey ??= Constants.Constants.ConfigurationSectionKeys.FeatureFlags;
+		IConfigurationSection configurationSection = configuration.GetSection(configurationSectionKey);
 
 		//2. Create a dictionary to hold flags
-		Dictionary<string, FeatureFlag> featureFlags = new Dictionary<string, FeatureFlag>();
+		Dictionary<string, FeatureFlag> featureFlags = new();
 
 		foreach (IConfigurationSection child in configurationSection.GetChildren())
 		{
