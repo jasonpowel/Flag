@@ -4,7 +4,7 @@ A "feature" rich library for using feature flags.
 
 ## Features
 
-### Extensive Integration with the Microsoft.Extensions.IConfiguration Interface
+### Integration with the Microsoft.Extensions.IConfiguration Interface
 
 ```cs
 configuration.BuildFeatureFlagProvider();
@@ -14,18 +14,6 @@ The default source for feature flags will be under configuration key `FeatureFla
 
 ```cs
 configuration.BuildFeatureFlagProvider("Flags");
-```
-
-You can also specify triggers for changes to feature flags
-
-```cs
-configuration.BuildFeatureFlagProvider(
-	x => x.WithTriggers(
-		triggers => triggers.For("DoNotWorkOnWeekends")
-					.When(DateTime.UtcNow.DayOfWeek is DayOfWeek.Saturday or DayOfWeek.Sunday)
-					.RefreshRate(TimeSpan.Minutes(1))
-					.Enable()
-	));
 ```
 
 ### An Injectable Feature Flag Repository
