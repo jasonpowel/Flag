@@ -8,6 +8,11 @@
     <Version>0.0.1</Version>
     <Author>JasonPowel</Author>
     <Product>Flag</Product>
+    <Description>A library for using feature flags in .NET</Description>
+    <Copyright></Copyright>
+    <RepositoryUrl>https://github.com/jasonpowel/Flag.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>FeatureFlags,Flags</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
